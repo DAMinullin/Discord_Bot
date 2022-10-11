@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 
+
 class RandomStuff(commands.Cog):
     def __init__(self, client):
         self.client = client
@@ -38,23 +39,28 @@ class RandomStuff(commands.Cog):
     async def on_message(self, message):
         if message.author == self.client.user:
             return
-        channel = self.client.get_channel(776863708487483432)
+        
+        #specify channel (channel.send)
+        #channel = self.client.get_channel(776863708487483432)
         if message.content.lower() == "who sus":
             with open('sus.jpg', 'rb') as file:
                 my_file = discord.File(file)
                 await message.channel.send("SUS", file = my_file)
 
         if 'where' in message.content.lower() and message.author != self.client.user:
-            await channel.send('where \nwhere \nwhere')
+            await message.channel.send('where \nwhere \nwhere')
 
         if any(elem in message.content.lower() for elem in ['ta', 'tili', 'тылита']):
-            await channel.send('https://www.youtube.com/watch?v=-79oQ5xR7s0')
+            await message.channel.send('https://www.youtube.com/watch?v=-79oQ5xR7s0')
+
+        if any(elem in message.content.lower() for elem in ['motiv', 'bury', 'light', 'мотивация', 'заряд']):
+            await message.channel.send('https://www.youtube.com/watch?v=Jrg9KxGNeJY')
 
         if any(elem in message.content.lower() for elem in ['welcome', 'rice', 'field']):
-            await channel.send('https://www.youtube.com/watch?v=g7EPhNEOVVE')
+            await message.channel.send('https://www.youtube.com/watch?v=g7EPhNEOVVE')
 
         if any(elem in message.content.lower() for elem in ['can you', 'do this', 'but can']):
-            await channel.send('https://youtu.be/v8eIuhPstno?list=PLYH8WvNV1YEnblnazwa6y27kkeqg35dfz&t=255')
+            await message.channel.send('https://youtu.be/v8eIuhPstno?list=PLYH8WvNV1YEnblnazwa6y27kkeqg35dfz&t=255')
         
     #     await self.client.process_commands(message) # отправляется дважды сообщение
 
